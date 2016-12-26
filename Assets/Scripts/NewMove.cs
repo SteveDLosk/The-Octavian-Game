@@ -72,12 +72,7 @@ public class NewMove : MonoBehaviour
 
     void GroundCheck()
     {
-
-        Debug.DrawLine(Feet.position, GroundTest.position, Color.green);
-        Debug.Log("Raycasting");
-
-        Grounded = Physics2D.Linecast(Feet.position, GroundTest.position);
-        
+        Grounded = Physics2D.Linecast(Feet.position, GroundTest.position);   
     }
 
     void MovePlayer(float playerSpeed)
