@@ -5,7 +5,7 @@ public class NewMove : MonoBehaviour
 {
     public float speedX;
     public float jumpSpeedY;
-    public Transform Feet, GroundTest;
+    public Transform Feet, Feet2, Feet3, GroundTest, GroundTest2, GroundTest3;
 
     bool facingRight, Jumping;
     public bool Grounded;  // check whether can jump
@@ -72,7 +72,15 @@ public class NewMove : MonoBehaviour
 
     void GroundCheck()
     {
-        Grounded = Physics2D.Linecast(Feet.position, GroundTest.position);   
+        bool grounded1, grounded2, grounded3;
+        grounded1 = Physics2D.Linecast(Feet.position, GroundTest.position);
+        grounded2 = Physics2D.Linecast(Feet2.position, GroundTest2.position);
+        grounded3 = Physics2D.Linecast(Feet3.position, GroundTest3.position);
+
+       if (grounded1 || grounded2 || grounded3)
+            Grounded = true;
+        else
+            Grounded = false;
     }
 
     void MovePlayer(float playerSpeed)
