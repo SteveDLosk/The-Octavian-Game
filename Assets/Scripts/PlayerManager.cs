@@ -60,6 +60,12 @@ public class PlayerManager : MonoBehaviour
 
     void FellToDeath ()
     {
-        SceneManager.LoadScene("GameOver");
+        Scene s = SceneManager.GetActiveScene();
+        string str = (s.name);
+
+        if (str == "BonusLevel")
+            SceneManager.LoadScene("WinEnd");
+        else
+            SceneManager.LoadScene("GameOver");
     }
 }
