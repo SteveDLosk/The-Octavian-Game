@@ -155,7 +155,10 @@ public class BaseEnemyAI : MonoBehaviour {
             // format numbers to "easier to work with"
             int damage = (int)Mathf.Floor(impact / 10);
             Debug.Log(damage.ToString());
-            LooseHealth(damage);
+
+            // Make sure bowling ball is falling on enemy, not the other way around
+            if (gameObject.transform.position.y <= other.transform.position.y)
+                LooseHealth(damage);
         }
     }
 
