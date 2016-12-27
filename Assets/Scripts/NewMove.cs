@@ -122,6 +122,23 @@ public class NewMove : MonoBehaviour
             Jumping = false;
             //anim.SetInteger("State", 0);
         }
+
+        else if (other.gameObject.tag == "BowlingBall")
+        {
+            float vel = other.rigidbody.velocity[1];
+            float impact = Vector3.Dot(other.contacts[0].normal, other.relativeVelocity)
+                    * other.rigidbody.mass;
+            // Make all impacts positive
+            impact = Mathf.Abs(impact);
+            // format numbers to "easier to work with"
+            int damage = (int)Mathf.Floor(impact / 25);
+            
+            if (vel < -.001  && 
+                other.transform.position[1] > rb.transform.position[1] - 3)
+            {
+                gameObject.SendMessage("TakeDamage", damage);
+            }
+        }
     }
 
     public void WalkLeft()
