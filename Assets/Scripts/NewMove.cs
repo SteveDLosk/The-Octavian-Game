@@ -125,6 +125,7 @@ public class NewMove : MonoBehaviour
 
         else if (other.gameObject.tag == "BowlingBall")
         {
+            /*
             float vel = other.rigidbody.velocity[1];
             float impact = Vector3.Dot(other.contacts[0].normal, other.relativeVelocity)
                     * other.rigidbody.mass;
@@ -137,7 +138,7 @@ public class NewMove : MonoBehaviour
                 other.transform.position[1] > rb.transform.position[1] - 3)
             {
                 gameObject.SendMessage("TakeDamage", damage);
-            }
+            }*/
         }
     }
 

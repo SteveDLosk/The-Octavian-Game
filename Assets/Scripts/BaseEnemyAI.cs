@@ -43,6 +43,7 @@ public class BaseEnemyAI : MonoBehaviour {
         {
                 GetCloser(Target);
         }
+
     }
 
     void Raycasting()
@@ -86,11 +87,17 @@ public class BaseEnemyAI : MonoBehaviour {
         if (distance < 0)
         {   
             rb.velocity = new Vector3(-speed, rb.velocity.y, 0);
+            // Flip sprite if direction changes
+            if (facingRight)
+                SpinAround();
             facingRight = false;
         }
         else
         {
             rb.velocity = new Vector3(speed, rb.velocity.y, 0);
+            // Flip sprite if direction changes
+            if (!facingRight)
+                SpinAround();
             facingRight = true;
         }
     }
@@ -107,12 +114,17 @@ public class BaseEnemyAI : MonoBehaviour {
             float distance;
 
             distance = targetPos - thisPos;
-          
-        if (distance < 0)
+
+            if (distance < 0)
+            {
                 rb.AddForce(new Vector2(-speed, jumpSpeedY));
+
+            }
             else
+            {
                 rb.AddForce(new Vector2(speed, jumpSpeedY));
-        
+       
+            }
         }
         
     }
@@ -121,12 +133,24 @@ public class BaseEnemyAI : MonoBehaviour {
         // code to flip the player direction
         if (speed > 0 && !facingRight || speed < 0 && facingRight)
         {
+            string db = "Flipped, speed " + speed + " facingRight = " + facingRight;
+            Debug.Log(db);
             facingRight = !facingRight;
 
             Vector3 temp = transform.localScale;
             temp.x *= -1;
             transform.localScale = temp;
         }
+    }
+
+    void SpinAround()
+    {
+        // Code to flip sprite to face player
+        facingRight = !facingRight;
+
+        Vector3 temp = transform.localScale;
+        temp.x *= -1;
+        transform.localScale = temp;
     }
 
     void Jump()
