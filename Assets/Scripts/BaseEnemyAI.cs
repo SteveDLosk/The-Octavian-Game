@@ -118,14 +118,12 @@ public class BaseEnemyAI : MonoBehaviour {
             if (distance < 0)
             {
                 rb.AddForce(new Vector2(-speed, jumpSpeedY));
-                if (!facingRight)
-                    SpinAround();
+
             }
             else
             {
                 rb.AddForce(new Vector2(speed, jumpSpeedY));
-                if (facingRight)
-                    SpinAround();
+       
             }
         }
         
@@ -149,12 +147,10 @@ public class BaseEnemyAI : MonoBehaviour {
     {
         // Code to flip sprite to face player
         facingRight = !facingRight;
-        Debug.Log("Flipped");
 
         Vector3 temp = transform.localScale;
         temp.x *= -1;
         transform.localScale = temp;
-
     }
 
     void Jump()
