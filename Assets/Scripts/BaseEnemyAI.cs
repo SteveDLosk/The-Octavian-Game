@@ -87,12 +87,10 @@ public class BaseEnemyAI : MonoBehaviour {
         if (distance < 0)
         {   
             rb.velocity = new Vector3(-speed, rb.velocity.y, 0);
-            // Flip sprite if directtion changes
+            // Flip sprite if direction changes
             if (facingRight)
                 SpinAround();
-
             facingRight = false;
-           
         }
         else
         {
@@ -100,13 +98,8 @@ public class BaseEnemyAI : MonoBehaviour {
             // Flip sprite if direction changes
             if (!facingRight)
                 SpinAround();
-
-
             facingRight = true;
-                 }
-
-
-        
+        }
     }
 
     void GetCloser(GameObject Target, bool stuck)
