@@ -15,7 +15,7 @@ public class BaseEnemyAI : MonoBehaviour {
     public bool StuffInWay;
     public int Health;
 
-    bool facingRight, Jumping;
+    public bool facingRight, Jumping;
     private float x_Position;
 
 
@@ -48,14 +48,14 @@ public class BaseEnemyAI : MonoBehaviour {
 
     void Raycasting()
     {
-        Debug.DrawLine(sightStart.position, sightEndLeft.position, Color.green);
+        Debug.DrawLine(sightStart.position, sightEndRight.position, Color.green);
 
         if (facingRight == false)
             StuffInWay = Physics2D.Linecast(sightStart.position, sightEndLeft.position);
+        
         else if (facingRight)
             StuffInWay = Physics2D.Linecast(sightStart.position, sightEndRight.position);
     }
-
     // Check is player is close enough to chase/attack
     bool TestIfCloseEnough(GameObject player)
     {

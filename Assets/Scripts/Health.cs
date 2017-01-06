@@ -30,10 +30,12 @@ public class Health : MonoBehaviour {
     public void TakeDamage(int damage)
     {
         HP -= damage;
+        Debug.Log("Take damage");
     }
 
     public void GainHealth(int health)
     {
         HP += health;
+        Debug.Log("Gain health");
     }
 }
