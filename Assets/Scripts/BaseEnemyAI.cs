@@ -102,47 +102,6 @@ public class BaseEnemyAI : MonoBehaviour {
         }
     }
 
-    void GetCloser(GameObject Target, bool stuck)
-    {
-        if (stuck)
-        {
-            Debug.Log("stuck");
-
-            float targetPos = Target.gameObject.transform.position[0];
-            float thisPos = gameObject.transform.position[0];
-            // calculate direction
-            float distance;
-
-            distance = targetPos - thisPos;
-
-            if (distance < 0)
-            {
-                rb.AddForce(new Vector2(-speed, jumpSpeedY));
-
-            }
-            else
-            {
-                rb.AddForce(new Vector2(speed, jumpSpeedY));
-       
-            }
-        }
-        
-    }
-    void Flip()
-    {
-        // code to flip the player direction
-        if (speed > 0 && !facingRight || speed < 0 && facingRight)
-        {
-            string db = "Flipped, speed " + speed + " facingRight = " + facingRight;
-            Debug.Log(db);
-            facingRight = !facingRight;
-
-            Vector3 temp = transform.localScale;
-            temp.x *= -1;
-            transform.localScale = temp;
-        }
-    }
-
     void SpinAround()
     {
         // Code to flip sprite to face player
