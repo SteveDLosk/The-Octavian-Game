@@ -28,9 +28,9 @@ public class PlayerManager : MonoBehaviour
             // Bounce back from enemy
             float x = gameObject.transform.position.x - other.transform.position.x;
             float y = gameObject.transform.position.y - other.transform.position.y;
-            Vector2 bounce = new Vector2((x * 10),(y * 10));
+            Vector2 bounce = new Vector2((x * 30000),(y * 30000));
             rb.AddForce(bounce);
-           
+            
         }
 
     }
