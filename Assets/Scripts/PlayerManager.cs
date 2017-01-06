@@ -10,9 +10,12 @@ public class PlayerManager : MonoBehaviour
     public int score { get; set; }
     public int health { get; set; }
 
+    Rigidbody2D rb;
+
     void Start()
     {
         health = 30;
+        rb = GetComponent<Rigidbody2D>();
     }
     // Player damage
     void OnCollisionEnter2D(Collision2D other)
@@ -20,7 +23,13 @@ public class PlayerManager : MonoBehaviour
         // Check if hits an enemy, and if player is a currently valid target
         if (other.gameObject.tag == "Enemy" && gameObject.tag == "Player")
         {
-            TakeDamage(5);        
+            TakeDamage(5);
+
+            // Bounce back from enemy
+            float x = gameObject.transform.position.x - other.transform.position.x;
+            Vector2 bounce = new Vector2((x * 30000), 0);
+            rb.AddForce(bounce);
+            
         }
 
     }
