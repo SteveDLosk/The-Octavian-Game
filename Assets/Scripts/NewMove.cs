@@ -65,8 +65,14 @@ public class NewMove : MonoBehaviour
         {
             Jumping = true;
             rb.AddForce(new Vector2(rb.velocity.x, jumpSpeedY));
-           
-          //  anim.SetInteger("State", 3);
+
+            //  anim.SetInteger("State", 3);
+
+            // Play jump sound
+            AudioSource audio = GetComponent<AudioSource>();
+            
+            audio.Play();
+            audio.Play(44100);
         }
     }
 
