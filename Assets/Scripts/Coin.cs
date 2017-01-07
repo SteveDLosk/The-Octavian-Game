@@ -6,6 +6,7 @@ public class Coin : MonoBehaviour
 {
     public int CoinValue;
     public string TreasureName;
+    
     //public GameScore ScoreController;
     public GameObject ScoreUIObject;
     void OnTriggerEnter2D(Collider2D other)
@@ -17,6 +18,11 @@ public class Coin : MonoBehaviour
         {
             // remove coin
             Destroy(gameObject);
+            // sound
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.Play();
+            audio.Play(44100);
+
 
             gameO.SendMessage("GainTreasure", CoinValue);
 
