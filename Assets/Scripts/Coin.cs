@@ -9,11 +9,13 @@ public class Coin : MonoBehaviour
     
     //public GameScore ScoreController;
     public GameObject ScoreUIObject;
+    private bool hasBeenTriggered = false;
+
     void OnTriggerEnter2D(Collider2D other)
     {
         GameObject gameO = other.gameObject;
 
-        if (gameO.CompareTag("Player") || gameO.CompareTag("PlayerInvincible"))
+        if ((gameO.CompareTag("Player") || gameO.CompareTag("PlayerInvincible")) && !hasBeenTriggered)
         
         {
             // sound
@@ -30,6 +32,9 @@ public class Coin : MonoBehaviour
             // Update Master Score
             MasterGameScore.SetScore(CoinValue);
             //MasterGameScore.Debuging();
+
+            // solve double-triggering
+            hasBeenTriggered = true;
 
             // remove coin
             StartCoroutine(Remove(1));
