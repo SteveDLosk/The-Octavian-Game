@@ -10,5 +10,11 @@ public class MenuControl : MonoBehaviour
         MasterGameScore.Score = 0;
         SceneManager.LoadScene(sceneName);
     }
-	
+
+    public void Quit()
+    {
+        Debug.Log("Quitting");
+        Application.Quit();
+    }
+
 }
