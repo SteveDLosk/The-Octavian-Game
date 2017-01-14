@@ -35,7 +35,7 @@ public class AndroidMobileControls : MonoBehaviour
 
         // Ground check to see if jumping is possible
         GroundCheck();
-
+        /*
         // left player movement
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
@@ -71,7 +71,7 @@ public class AndroidMobileControls : MonoBehaviour
 
             audio.Play();
             audio.Play(44100);
-        }
+        }*/
     }
 
     void GroundCheck()
