@@ -109,7 +109,7 @@ public class AndroidMobileControls : MonoBehaviour
     void Flip()
     {
         // code to flip the player direction
-        if (speed > 0 && !facingRight || speed < 0 && facingRight)
+        if (speed < 0 && !facingRight || speed > 0 && facingRight)
         {
             facingRight = !facingRight;
 
