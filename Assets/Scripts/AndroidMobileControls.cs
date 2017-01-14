@@ -105,7 +105,7 @@ public class AndroidMobileControls : MonoBehaviour
 
         rb.velocity = new Vector3(speed, rb.velocity.y, 0);
     }
-
+    
     void Flip()
     {
         // code to flip the player direction
