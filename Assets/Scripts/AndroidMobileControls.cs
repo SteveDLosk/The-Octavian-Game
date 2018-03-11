@@ -18,6 +18,18 @@ public class AndroidMobileControls : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         player = this.gameObject;
+
+        // 1024 X 600 default resolution
+        const int defaultHt = 600;
+        const int defaultWt = 1024;
+        int height = Camera.current.pixelHeight;
+        int width = Camera.current.pixelWidth;
+
+        float scaleHt = height / defaultHt;
+        float scaleWt = width / defaultWt;
+
+        Camera camera = Camera.current;
+        camera.aspect = scaleHt / scaleWt;
        
 	}
 
